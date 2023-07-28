@@ -2,16 +2,25 @@
   "name": "expressjs-demo",
   "version": "1.0.0",
   "description": "",
+  "pro": "babel-node ./src/server.js",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
+    "dev": "nodemon --inspect --exec babel-node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/node": "^7.22.6",
+    "@babel/preset-env": "^7.22.9",
     "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^3.0.1"
   }

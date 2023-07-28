@@ -1,13 +1,14 @@
-const express = require('express')
-const router = express.Router();
-const fs = require('fs')
+import express from 'express'
+import fs from 'fs'
+import {checkAdmin} from '../../middlewares/user.middleware';
 
+const router = express.Router();
 
 const userDataPath  = './dev-data/users.json';
 
 let userData = JSON.parse(fs.readFileSync(userDataPath, 'utf8'))
 
-router.get('/', (req, res) => {
+router.get('/', checkAdmin, (req, res) => {
     res.json(userData)
 })
 
@@ -49,5 +50,5 @@ router.delete('/:userId', (req, res) => {
     fs.writeFileSync(userDataPath, JSON.stringify(userData))
     res.json({ message: 'Delete user successfully'})
 })
-  
-module.exports = router;
+
+module.exports =  router;
